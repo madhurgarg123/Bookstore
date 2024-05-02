@@ -1,15 +1,14 @@
   const mongoose   = require('mongoose');
   const Schema = mongoose.Schema;
   const ObjectId = Schema.Types.ObjectId;
+  const user = require("./user");
    
   const  BookSchema =   new Schema(
         {
          authors : [{type : String , default: ""}],
-         sellCount:{type : Number , default: 0},
          title:{type : String , default: "" , unique: true },
-         description:{type : String , default: ""},
-         price:  {type : Number, default: 0},
-         Ispurchased:{type :Boolean,default:false},
+         publicationYear:{type: Number , default: 0 },
+         owner: { type : mongoose.ObjectId, ref : user  },
          isDeleted: { type: Boolean, default: false },
       },
 

@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8888;
 
   const mongodb = async () => {
   await mongoose.connect(
-      "mongodb+srv://madhurgarg87:ASrVmZWRZmmkQpYf@basiccurd.b0eurn3.mongodb.net/"
+      "mongodb+srv://madhurgarg87:@basiccurd.b0eurn3.mongodb.net/"
   );
 };
 mongodb();

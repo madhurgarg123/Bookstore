@@ -32,20 +32,7 @@ module.exports.verify = (...args) => async (req,res,next) =>{
                 accessToken: token
             });
         }
-        if (roles.includes("admin")) {
-            role = "admin";
-            doc = await User.findOne({
-                _id: decoded._id,
-                accessToken: token,
-            });
-        }
-        if (roles.includes("author")) {
-            role = "author";
-            doc = await User.findOne({
-                _id: decoded._id,
-                accessToken: token,
-            });
-        }
+       
         if (!doc) throw new Error("INVALID_TOKEN");
         if (role) req[role] = doc.toJSON();
    console.log("decoded", decoded)

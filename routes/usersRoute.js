@@ -3,9 +3,11 @@ const Controller = require("../Controllers");
 const Auth = require("../common/authentication");
 
 
-router.post("/login", Controller.User.login);
-router.get("/getallbooks" ,Auth.verify("user"),Controller.User.showAllBooks);
-router.post("/buynow/:id" ,Auth.verify("user"),Controller.User.buyNow);
-router.get("/purchasehistory" ,Auth.verify("user"),Controller.User.purchaseHistory);
+router.post("/login", Controller.user.login);
+router.post("/addnewbook",Auth.verify("user"),Controller.user.addNewBook);
+router.get("/getallbooks" ,Auth.verify("user"),Controller.user.getAllBooks);
+router.get("/deletebook/:id" ,Auth.verify("user"),Controller.user.deleteBookById );
+router.post("/updateBook/:id", Auth.verify("user"),Controller.user.updateBookById)
+router.post("/filteredBook", Auth.verify("user"),Controller.user.filteredBooks)
 
 module.exports = router;
